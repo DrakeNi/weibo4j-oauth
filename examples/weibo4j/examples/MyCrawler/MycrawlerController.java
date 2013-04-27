@@ -117,7 +117,7 @@ public class MycrawlerController {
 			System.out.println(cstatus.getUser().getName());
 			System.out.println(ltotal);
 			
-			
+			//From My Mac at home
 			
 			
 			for(Status s : status.getStatuses()){
