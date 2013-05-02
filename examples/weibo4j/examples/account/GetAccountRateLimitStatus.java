@@ -3,6 +3,7 @@ package weibo4j.examples.account;
 import weibo4j.Account;
 import weibo4j.examples.MyCrawler.UserLogin;
 import weibo4j.examples.oauth2.Log;
+import weibo4j.http.AccessToken;
 import weibo4j.model.RateLimitStatus;
 import weibo4j.model.WeiboException;
 
@@ -16,7 +17,14 @@ public class GetAccountRateLimitStatus {
 		login.SetPasswd("12345qwert");
 		login.SetClientId("3948386404");
 		login.SetClientSecret("5c6a6eb1aa48fab31a2a439e253b66ed");
-		String access_token = (login.GetToken()).getAccessToken();
+		AccessToken nactken = login.GetToken();
+		if(nactken==null){
+			System.out.println("Error");
+			return;
+		}
+		
+		String access_token = (nactken).getAccessToken();
+		
 		
 		Account am = new Account();
 		am.client.setToken(access_token);
