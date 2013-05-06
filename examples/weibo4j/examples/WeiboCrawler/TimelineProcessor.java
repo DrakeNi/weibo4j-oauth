@@ -1,5 +1,8 @@
 package weibo4j.examples.WeiboCrawler;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 import weibo4j.Account;
@@ -14,7 +17,7 @@ import weibo4j.model.WeiboException;
 
 public class TimelineProcessor {
 	
-	public static void getTimeline(String uid, TokenScheduler ts ) throws WeiboException{
+	public static void getTimeline(String uid, TokenScheduler ts ) throws WeiboException, IOException{
 		AccessToken access_token = ts.getCurrentAccessToken();
 		while(AccessTokenChecker.isEmpty(access_token)||(!AccessTokenChecker.isRemainingHits(access_token))){
 			access_token = ts.getNextAccessToken(); 
@@ -32,9 +35,14 @@ public class TimelineProcessor {
 		}
 		
 		//System.out.println(status.getTotalNumber());
+		
+		String fname = uid + ".txt";
+		BufferedWriter bw = new BufferedWriter(new FileWriter(fname, true));
 	    List<Status> list =status.getStatuses();
 		Status cstatus = list.get(0);
 		User cuser = cstatus.getUser();
+		bw.write(cuser.toString());
+		bw.newLine();
 		String cuid = cuser.getId();
 	    long ltotal = status.getTotalNumber();
 		long m = ltotal/100 +1;
@@ -50,11 +58,15 @@ public class TimelineProcessor {
 			StatusWapper status1 = tm1.getUserTimelineByUid(uid, page,0,0);
 			for(Status s : status1.getStatuses()){
 				//fobj.WriteByLine(s.toString());
+				bw.write(s.toString());
+				bw.newLine();
 				System.out.println("-----"+ s.getText() + "------");
 			}
 			j++;
 			
 		}
+		bw.flush();
+		bw.close();
 		
 		
 		

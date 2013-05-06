@@ -1,5 +1,8 @@
 package weibo4j.examples.WeiboCrawler;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +12,7 @@ import weibo4j.model.WeiboException;
 
 public class FollowingProcessor {
 	
-	public static List<String> getFollowing(String uid, TokenScheduler ts) throws WeiboException{
+	public static List<String> getFollowing(String uid, TokenScheduler ts) throws WeiboException, IOException{
 		
 		List<String> fuids = new ArrayList<String>();
 		
@@ -20,6 +23,8 @@ public class FollowingProcessor {
 		Friendships fm = new Friendships();
 		fm.client.setToken(access_token.getAccessToken());
 		
+		String fname = uid + ".txt";
+		BufferedWriter bw = new BufferedWriter(new FileWriter(fname, true));
 		String[] users = fm.getFriendsIdsByUid(uid);
 		int cursors = users.length/5000 + 1;
 		for(int i=0;i<cursors;i++){
@@ -30,10 +35,15 @@ public class FollowingProcessor {
 			}
 			fm1.client.setToken(access_token_temp.getAccessToken());
 			String[] temps = fm1.getFriendsIdsByUid(uid);
+			//bw.write(temps);
 			for(String s : temps){
 				fuids.add(s);
+				bw.write(s);
+				bw.newLine();
 			}
 		}
+		bw.flush();
+		bw.close();
 		return fuids;
 		
 	}
