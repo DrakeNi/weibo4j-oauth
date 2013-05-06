@@ -16,6 +16,11 @@ public class GetCurrentTimeStamp {
 		System.out.println(date.getTime());
 		
 		System.out.println(System.currentTimeMillis());
+		
+		System.out.println(new Timestamp(System.currentTimeMillis()));
+		
+		System.out.println(date.getTime());
+		
 	}
 	
 	

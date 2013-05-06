@@ -10,11 +10,11 @@ public class AppUser {
 		this.password = password;
 	}
 	
-	public String GetUname(){
+	public String getUname(){
 		return this.uname;
 	}
 	
-	public String GetPassWord(){
+	public String getPassWord(){
 		return this.password;
 	}
 

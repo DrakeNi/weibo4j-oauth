@@ -98,7 +98,20 @@ public class Oauth extends Weibo{
 						new PostParameter("client_secret", ClientSecret),
 						new PostParameter("grant_type", "authorization_code"),
 						new PostParameter("code", code),
-						new PostParameter("redirect_uri", "https://api.weibo.com/oauth2/default.html") }, false));
+						new PostParameter("redirect_uri", "http://shiwei072.weibo.com/callback") }, false));
+		//new PostParameter("redirect_uri", "https://api.weibo.com/oauth2/default.html") }, false)
+	}
+	
+	public AccessToken getMyAccessTokenBycode(String code, String ClientId, String ClientSecret, String url) throws WeiboException{
+		return new AccessToken(client.post(
+				"https://api.weibo.com/oauth2/access_token",
+				new PostParameter[] {
+						new PostParameter("client_id",ClientId),
+						new PostParameter("client_secret", ClientSecret),
+						new PostParameter("grant_type", "authorization_code"),
+						new PostParameter("code", code),
+						new PostParameter("redirect_uri", url) }, false));
+		
 	}
 
 	public String authorize(String response_type) throws WeiboException {

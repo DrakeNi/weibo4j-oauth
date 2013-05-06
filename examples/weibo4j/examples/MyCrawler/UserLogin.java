@@ -71,6 +71,8 @@ public class UserLogin {
 		 postMethod.addParameter("client_id", ClientId);
 		 //postMethod.addParameter("redirect_uri", "https://api.weibo.com/oauth2/default.html");
 		 postMethod.addParameter("redirect_uri", "http://shiwei072.weibo.com/callback");
+		 //postMethod.addParameter("redirect_uri", "http://apps.weibo.com/nxdtextni");
+		 
 		 postMethod.addParameter("userId", uid);
 		 postMethod.addParameter("passwd", Passwd);
 		 postMethod.addParameter("isLoginSina", "0"); 

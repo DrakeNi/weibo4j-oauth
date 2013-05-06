@@ -13,10 +13,10 @@ public class GetAccountRateLimitStatus {
 		//String access_token =args[0];
 		
 		UserLogin login = new UserLogin();
-		login.SetUid("testni2012_1@163.com");
-		login.SetPasswd("12345qwert");
-		login.SetClientId("3948386404");
-		login.SetClientSecret("5c6a6eb1aa48fab31a2a439e253b66ed");
+		login.SetUid("xushun007@163.com");
+		login.SetPasswd("19871211");
+		login.SetClientId("3464070480");
+		login.SetClientSecret("a00cf7dee38a6eba734f5db043ac5577");
 		AccessToken nactken = login.GetToken();
 		if(nactken==null){
 			System.out.println("Error");
@@ -24,6 +24,7 @@ public class GetAccountRateLimitStatus {
 		}
 		
 		String access_token = (nactken).getAccessToken();
+		System.out.println(nactken.toString());
 		
 		
 		Account am = new Account();

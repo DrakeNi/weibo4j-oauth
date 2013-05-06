@@ -1,36 +1,76 @@
-33776 DEBUG [2013-01-25 17:19:35]  Request:
-33776 DEBUG [2013-01-25 17:19:35]  POSThttps://api.weibo.com/oauth2/access_token
-33868 DEBUG [2013-01-25 17:19:35]  Response:
-33868 DEBUG [2013-01-25 17:19:35]  https StatusCode:200
-33868 DEBUG [2013-01-25 17:19:35]  Server:nginx/1.2.0
-33868 DEBUG [2013-01-25 17:19:35]  Date:Fri, 25 Jan 2013 09:19:45 GMT
-33868 DEBUG [2013-01-25 17:19:35]  Content-Type:text/plain;charset=UTF-8
-33868 DEBUG [2013-01-25 17:19:35]  Content-Length:111
-33869 DEBUG [2013-01-25 17:19:35]  Connection:keep-alive
-33869 DEBUG [2013-01-25 17:19:35]  Pragma:No-cache
-33869 DEBUG [2013-01-25 17:19:35]  Cache-Control:no-cache
-33869 DEBUG [2013-01-25 17:19:35]  Expires:Thu, 01 Jan 1970 00:00:00 GMT
-33869 DEBUG [2013-01-25 17:19:35]  Api-Server-IP:10.73.89.46
-33869 DEBUG [2013-01-25 17:19:35]  X-Varnish:995098426
-33869 DEBUG [2013-01-25 17:19:35]  Age:0
-33869 DEBUG [2013-01-25 17:19:35]  Via:1.1 varnish
-33869 DEBUG [2013-01-25 17:19:35]  SINA-LB:cWgxMzIuaGEucWgyLmJqLmxvYWRiYWxhbmNlLnNpbg==
-33869 DEBUG [2013-01-25 17:19:35]  {"access_token":"2.00wOo_9CWys7mDa2a1d60db5yiMv7D","remind_in":"126022","expires_in":126022,"uid":"2250724430"}
+8671 DEBUG [2013-05-06 16:52:58]  Request:
+8671 DEBUG [2013-05-06 16:52:58]  GET:https://api.weibo.com/2/account/rate_limit_status.json
+8672 DEBUG [2013-05-06 16:52:58]  Authorization: OAuth2 2.00GBGE4Bf2VY6B2828fa3a9b0D5KO_
+8672 DEBUG [2013-05-06 16:52:58]  API-RemoteIP: 121.249.3.134
+8810 DEBUG [2013-05-06 16:52:58]  Response:
+8810 DEBUG [2013-05-06 16:52:58]  https StatusCode:200
+8810 DEBUG [2013-05-06 16:52:58]  Server:nginx/1.2.0
+8810 DEBUG [2013-05-06 16:52:58]  Date:Mon, 06 May 2013 08:52:59 GMT
+8810 DEBUG [2013-05-06 16:52:58]  Content-Type:application/json;charset=UTF-8
+8810 DEBUG [2013-05-06 16:52:58]  Content-Length:623
+8810 DEBUG [2013-05-06 16:52:58]  Connection:keep-alive
+8810 DEBUG [2013-05-06 16:52:58]  Api-Server-IP:10.77.108.46
+8811 DEBUG [2013-05-06 16:52:58]  Vary:Accept-Encoding
+8811 DEBUG [2013-05-06 16:52:58]  X-Varnish:3600711165
+8811 DEBUG [2013-05-06 16:52:58]  Age:0
+8811 DEBUG [2013-05-06 16:52:58]  Via:1.1 varnish
+8811 DEBUG [2013-05-06 16:52:58]  SINA-LB:cWgxMzIuaGEucWgyLmJqLmxvYWRiYWxhbmNlLnNpbg==
+8811 DEBUG [2013-05-06 16:52:58]  {"api_rate_limits":[{"api":"/statuses/update","limit":30,"limit_time_unit":"HOURS","remaining_hits":30},{"api":"/comments/create","limit":60,"limit_time_unit":"HOURS","remaining_hits":60},{"api":"/direct_messages/new","limit":60,"limit_time_unit":"HOURS","remaining_hits":60},{"api":"/friendships/create","limit":60,"limit_time_unit":"HOURS","remaining_hits":60},{"api":"/friendships/create","limit":100,"limit_time_unit":"DAYS","remaining_hits":100}],"ip_limit":1000,"limit_time_unit":"HOURS","remaining_ip_hits":791,"remaining_user_hits":91,"reset_time":"2013-05-06 17:00:00","reset_time_in_seconds":421,"user_limit":150}
 
-33871 DEBUG [2013-01-25 17:19:35]  Request:
-33871 DEBUG [2013-01-25 17:19:35]  GET:https://api.weibo.com/2/statuses/user_timeline.json
-33872 DEBUG [2013-01-25 17:19:35]  Authorization: OAuth2 2.00wOo_9CWys7mDa2a1d60db5yiMv7D
-33872 DEBUG [2013-01-25 17:19:35]  API-RemoteIP: 58.192.125.105
-34142 DEBUG [2013-01-25 17:19:36]  Response:
-34142 DEBUG [2013-01-25 17:19:36]  https StatusCode:200
-34143 DEBUG [2013-01-25 17:19:36]  Server:nginx/1.2.0
-34143 DEBUG [2013-01-25 17:19:36]  Date:Fri, 25 Jan 2013 09:19:45 GMT
-34143 DEBUG [2013-01-25 17:19:36]  Content-Type:application/json;charset=UTF-8
-34143 DEBUG [2013-01-25 17:19:36]  Content-Length:234803
-34143 DEBUG [2013-01-25 17:19:36]  Connection:keep-alive
-34143 DEBUG [2013-01-25 17:19:36]  Api-Server-IP:10.77.108.55
-34143 DEBUG [2013-01-25 17:19:36]  Vary:Accept-Encoding
-34143 DEBUG [2013-01-25 17:19:36]  X-Varnish:2187163317
-34143 DEBUG [2013-01-25 17:19:36]  Age:0
-34143 DEBUG [2013-01-25 17:19:36]  Via:1.1 varnish
-34143 DEBUG [2013-01-25 17:19:36]  SINA-LB:cWgxMzIuaGEucWgyLmJqLmxvYWRiYWxhbmNlLnNpbg==
+8811 DEBUG [2013-05-06 16:52:58]  Request:
+8811 DEBUG [2013-05-06 16:52:58]  GET:https://api.weibo.com/2/friendships/friends/ids.json
+8813 DEBUG [2013-05-06 16:52:58]  Authorization: OAuth2 2.00GBGE4Bf2VY6B2828fa3a9b0D5KO_
+8813 DEBUG [2013-05-06 16:52:58]  API-RemoteIP: 121.249.3.134
+8951 DEBUG [2013-05-06 16:52:58]  Response:
+8951 DEBUG [2013-05-06 16:52:58]  https StatusCode:200
+8951 DEBUG [2013-05-06 16:52:58]  Server:nginx/1.2.0
+8951 DEBUG [2013-05-06 16:52:58]  Date:Mon, 06 May 2013 08:52:59 GMT
+8951 DEBUG [2013-05-06 16:52:58]  Content-Type:application/json;charset=UTF-8
+8951 DEBUG [2013-05-06 16:52:58]  Content-Length:470
+8951 DEBUG [2013-05-06 16:52:58]  Connection:keep-alive
+8951 DEBUG [2013-05-06 16:52:58]  Api-Server-IP:10.77.108.52
+8951 DEBUG [2013-05-06 16:52:58]  Vary:Accept-Encoding
+8951 DEBUG [2013-05-06 16:52:58]  X-Varnish:40768023
+8951 DEBUG [2013-05-06 16:52:58]  Age:0
+8951 DEBUG [2013-05-06 16:52:58]  Via:1.1 varnish
+8951 DEBUG [2013-05-06 16:52:58]  SINA-LB:cWgxMzIuaGEucWgyLmJqLmxvYWRiYWxhbmNlLnNpbg==
+8951 DEBUG [2013-05-06 16:52:58]  {"ids":[1447363233,2943486363,1773041022,2683783804,2384960814,1714732373,1155641071,1654792265,1820490254,1708288824,1822393112,1273610165,2491633462,1832363790,2356563467,2551034310,2713050600,2971489480,2621152945,2370715097,1781387491,1655526104,1310627141,1711599694,1756505647,1212612565,1611215014,2319683637,2041215745,1280761142,1249729383,1677477577,1721975343,1765148101,2013236575,2084009251,1986010511],"next_cursor":0,"previous_cursor":0,"total_number":37}
+
+8952 DEBUG [2013-05-06 16:52:58]  Request:
+8952 DEBUG [2013-05-06 16:52:58]  GET:https://api.weibo.com/2/account/rate_limit_status.json
+8952 DEBUG [2013-05-06 16:52:58]  Authorization: OAuth2 2.00GBGE4Bf2VY6B2828fa3a9b0D5KO_
+8952 DEBUG [2013-05-06 16:52:58]  API-RemoteIP: 121.249.3.134
+9089 DEBUG [2013-05-06 16:52:58]  Response:
+9089 DEBUG [2013-05-06 16:52:58]  https StatusCode:200
+9089 DEBUG [2013-05-06 16:52:58]  Server:nginx/1.2.0
+9089 DEBUG [2013-05-06 16:52:58]  Date:Mon, 06 May 2013 08:52:59 GMT
+9089 DEBUG [2013-05-06 16:52:58]  Content-Type:application/json;charset=UTF-8
+9089 DEBUG [2013-05-06 16:52:58]  Content-Length:623
+9089 DEBUG [2013-05-06 16:52:58]  Connection:keep-alive
+9090 DEBUG [2013-05-06 16:52:58]  Api-Server-IP:10.77.108.42
+9090 DEBUG [2013-05-06 16:52:58]  Vary:Accept-Encoding
+9090 DEBUG [2013-05-06 16:52:58]  X-Varnish:3916101473
+9090 DEBUG [2013-05-06 16:52:58]  Age:0
+9090 DEBUG [2013-05-06 16:52:58]  Via:1.1 varnish
+9090 DEBUG [2013-05-06 16:52:58]  SINA-LB:cWgxMzIuaGEucWgyLmJqLmxvYWRiYWxhbmNlLnNpbg==
+9090 DEBUG [2013-05-06 16:52:58]  {"api_rate_limits":[{"api":"/statuses/update","limit":30,"limit_time_unit":"HOURS","remaining_hits":30},{"api":"/comments/create","limit":60,"limit_time_unit":"HOURS","remaining_hits":60},{"api":"/direct_messages/new","limit":60,"limit_time_unit":"HOURS","remaining_hits":60},{"api":"/friendships/create","limit":60,"limit_time_unit":"HOURS","remaining_hits":60},{"api":"/friendships/create","limit":100,"limit_time_unit":"DAYS","remaining_hits":100}],"ip_limit":1000,"limit_time_unit":"HOURS","remaining_ip_hits":790,"remaining_user_hits":90,"reset_time":"2013-05-06 17:00:00","reset_time_in_seconds":421,"user_limit":150}
+
+9090 DEBUG [2013-05-06 16:52:58]  Request:
+9090 DEBUG [2013-05-06 16:52:58]  GET:https://api.weibo.com/2/friendships/friends/ids.json
+9092 DEBUG [2013-05-06 16:52:58]  Authorization: OAuth2 2.00GBGE4Bf2VY6B2828fa3a9b0D5KO_
+9092 DEBUG [2013-05-06 16:52:58]  API-RemoteIP: 121.249.3.134
+9198 DEBUG [2013-05-06 16:52:58]  Response:
+9198 DEBUG [2013-05-06 16:52:58]  https StatusCode:200
+9198 DEBUG [2013-05-06 16:52:58]  Server:nginx/1.2.0
+9198 DEBUG [2013-05-06 16:52:58]  Date:Mon, 06 May 2013 08:52:59 GMT
+9198 DEBUG [2013-05-06 16:52:58]  Content-Type:application/json;charset=UTF-8
+9198 DEBUG [2013-05-06 16:52:58]  Content-Length:470
+9198 DEBUG [2013-05-06 16:52:58]  Connection:keep-alive
+9199 DEBUG [2013-05-06 16:52:58]  Api-Server-IP:10.77.108.49
+9199 DEBUG [2013-05-06 16:52:58]  Vary:Accept-Encoding
+9199 DEBUG [2013-05-06 16:52:58]  X-Varnish:171067845
+9199 DEBUG [2013-05-06 16:52:58]  Age:0
+9199 DEBUG [2013-05-06 16:52:58]  Via:1.1 varnish
+9199 DEBUG [2013-05-06 16:52:58]  SINA-LB:cWgxMzIuaGEucWgyLmJqLmxvYWRiYWxhbmNlLnNpbg==
+9199 DEBUG [2013-05-06 16:52:58]  {"ids":[1447363233,2943486363,1773041022,2683783804,2384960814,1714732373,1155641071,1654792265,1820490254,1708288824,1822393112,1273610165,2491633462,1832363790,2356563467,2551034310,2713050600,2971489480,2621152945,2370715097,1781387491,1655526104,1310627141,1711599694,1756505647,1212612565,1611215014,2319683637,2041215745,1280761142,1249729383,1677477577,1721975343,1765148101,2013236575,2084009251,1986010511],"next_cursor":0,"previous_cursor":0,"total_number":37}
+

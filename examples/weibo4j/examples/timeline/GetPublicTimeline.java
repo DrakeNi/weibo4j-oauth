@@ -10,7 +10,7 @@ import weibo4j.model.WeiboException;
 public class GetPublicTimeline {
 
 	public static void main(String[] args) {
-		String access_token = args[0];
+		String access_token = "2.00fzHk2DL6I5NCaa42a71fae0lJfVb";
 		Timeline tm = new Timeline();
 		tm.client.setToken(access_token);
 		try {

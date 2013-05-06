@@ -34,11 +34,11 @@ public class AccessTokenIssuer {
 				 //Simulating Desktop Apps Login with UserId and Passwd (Parameter)
 				 String url = "https://api.weibo.com/oauth2/authorize";
 				 PostMethod postMethod = new PostMethod(url); 
-				 postMethod.addParameter("client_id", app.GetClientId());
+				 postMethod.addParameter("client_id", app.getClientId());
 				 //postMethod.addParameter("redirect_uri", "https://api.weibo.com/oauth2/default.html");
-				 postMethod.addParameter("redirect_uri", "http://shiwei072.weibo.com/callback");
-				 postMethod.addParameter("userId", user.GetUname());
-				 postMethod.addParameter("passwd", user.GetPassWord());
+				 postMethod.addParameter("redirect_uri", app.getRedirectUrl());
+				 postMethod.addParameter("userId", user.getUname());
+				 postMethod.addParameter("passwd", user.getPassWord());
 				 postMethod.addParameter("isLoginSina", "0"); 
 				 postMethod.addParameter("action", "submit"); 
 				 postMethod.addParameter("response_type", "code");// Using code type
@@ -84,9 +84,10 @@ public class AccessTokenIssuer {
 		                                     AccessToken token;
 											try {
 												//token = oauth.getAccessTokenByCode(code);
-												token = oauth.getMyAccessTokenBycode(code, app.GetClientId(), app.GetClientSecret());
+												token = oauth.getMyAccessTokenBycode(code, app.getClientId(), app.getClientSecret(), app.getRedirectUrl());
 			                                     //System.out.println(token);
-			                                     System.out.println("Success!");
+												String temp =  (token==null) ? "Empty" : token.toString();
+			                                     System.out.println("Successfully apply for accesstoken" + temp);
 			                                     return token;
 											} catch (WeiboException e) {
 												// TODO Auto-generated catch block
