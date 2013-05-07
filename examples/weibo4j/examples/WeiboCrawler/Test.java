@@ -1,5 +1,6 @@
 package weibo4j.examples.WeiboCrawler;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,10 +16,11 @@ public class Test {
 
 	/**
 	 * @param args
+	 * @throws IOException 
 	 */
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		// TODO Auto-generated method stub
 		
 		
@@ -99,16 +101,14 @@ public class Test {
 	    		//WeiboProcessing wp = new WeiboProcessing();
 	    		//wp.Setuid(u);
 	    		//wp.GetTimeLine(userpool, apppool);
-	    		TimelineProcessor.getTimeline(u, token_scheduler);
-	    		
-					for(String uid : FollowingProcessor.getFollowing(u, token_scheduler)){
-						WeiboUser tempuser = new WeiboUser(uid, -1);
-						queue.offer(tempuser);
-					}
-			
-	    		
-	    		
-	    	}
+	    
+				TimelineProcessor.getTimeline(u, token_scheduler);
+				
+				for(String uid : FollowingProcessor.getFollowing(u, token_scheduler)){
+					WeiboUser tempuser = new WeiboUser(uid, -1);
+					queue.offer(tempuser);
+				}
+			}
 	    	
 	    }else{
 	    	if(MaxDepth ==0)
@@ -136,7 +136,9 @@ public class Test {
 	    		//WeiboProcessing wp = new WeiboProcessing();
 	    		//wp.Setuid(u);
 	    		//wp.GetTimeLine(userpool, apppool);
-	    		TimelineProcessor.getTimeline(u, token_scheduler);
+	    		
+				TimelineProcessor.getTimeline(u, token_scheduler);
+				
 	    		
 	    		for(String uid : FollowingProcessor.getFollowing(u, token_scheduler)){
 	    			WeiboUser tempuser = new WeiboUser(uid, level+1);
@@ -151,6 +153,9 @@ public class Test {
 		}
 		catch (WeiboException e)
 		{
+			e.printStackTrace();
+		}
+		catch(IOException e){
 			e.printStackTrace();
 		}
 		

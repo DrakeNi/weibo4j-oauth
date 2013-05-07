@@ -7,6 +7,7 @@ import java.util.List;
 
 import weibo4j.Account;
 import weibo4j.Timeline;
+import weibo4j.Users;
 import weibo4j.http.AccessToken;
 import weibo4j.model.Paging;
 import weibo4j.model.RateLimitStatus;
@@ -22,6 +23,10 @@ public class TimelineProcessor {
 		while(AccessTokenChecker.isEmpty(access_token)||(!AccessTokenChecker.isRemainingHits(access_token))){
 			access_token = ts.getNextAccessToken(); 
 		}
+		//String storageFolder = System.getProperty("user.dir")+System.getProperty("file.separator")+"crawlerdata";
+		String fname =uid + "_timeline.txt";
+		BufferedWriter bw = new BufferedWriter(new FileWriter(fname, true));
+		
 		Paging page = new Paging();
 		page.setPage(1);
 	    page.setCount(100);
@@ -29,15 +34,27 @@ public class TimelineProcessor {
 		tm.client.setToken(access_token.getAccessToken());
 		StatusWapper status = tm.getUserTimelineByUid(uid);
 		if(status.getTotalNumber()==0){
+			
+			// handle the user who has no timeline, record the user's information
 			System.out.println(status.getTotalNumber());
 			System.out.println("There is no timeline!");
+			AccessToken tempat = ts.getCurrentAccessToken();
+			while(AccessTokenChecker.isEmpty(tempat)||(!AccessTokenChecker.isRemainingHits(tempat))){
+				tempat = ts.getNextAccessToken();
+			}
+			Users um = new Users();
+			um.client.setToken(tempat.getAccessToken());
+			User user = um.showUserById(uid);
+			System.out.println(user.toString());
+			bw.write(user.toString());
+			bw.flush();
+			bw.close();
 			return;
 		}
 		
 		//System.out.println(status.getTotalNumber());
 		
-		String fname = uid + ".txt";
-		BufferedWriter bw = new BufferedWriter(new FileWriter(fname, true));
+		
 	    List<Status> list =status.getStatuses();
 		Status cstatus = list.get(0);
 		User cuser = cstatus.getUser();
@@ -58,6 +75,7 @@ public class TimelineProcessor {
 			StatusWapper status1 = tm1.getUserTimelineByUid(uid, page,0,0);
 			for(Status s : status1.getStatuses()){
 				//fobj.WriteByLine(s.toString());
+				
 				bw.write(s.toString());
 				bw.newLine();
 				System.out.println("-----"+ s.getText() + "------");

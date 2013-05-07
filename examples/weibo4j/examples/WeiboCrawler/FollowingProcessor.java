@@ -23,7 +23,7 @@ public class FollowingProcessor {
 		Friendships fm = new Friendships();
 		fm.client.setToken(access_token.getAccessToken());
 		
-		String fname = uid + ".txt";
+		String fname = uid + "_following.txt";
 		BufferedWriter bw = new BufferedWriter(new FileWriter(fname, true));
 		String[] users = fm.getFriendsIdsByUid(uid);
 		int cursors = users.length/5000 + 1;
