@@ -46,13 +46,35 @@ public class TimelineProcessor {
 				tempat = ts.getNextAccessToken();
 			}
 			Users um = new Users();
+			String userinfo;
 			um.client.setToken(tempat.getAccessToken());
+			try{
 			User user = um.showUserById(uid);
-			System.out.println(user.toString());
 			bw.write(user.toString());
 			bw.flush();
 			bw.close();
 			return;
+			
+			}catch(WeiboException e){
+				System.out.println(e.getErrorCode());
+				System.out.println(e.getError());
+				System.out.println(e.getStatusCode());
+				if(e.getErrorCode()==20003){
+					System.out.println("User " + uid + " has been deleted!");
+				}
+				
+				bw.write(uid);
+				bw.flush();
+				bw.close();
+				return;
+			}
+			
+			
+			/*System.out.println(user.toString());
+			bw.write(user.toString());
+			bw.flush();
+			bw.close();
+			return;*/
 		}
 		
 		//System.out.println(status.getTotalNumber());

@@ -25,6 +25,8 @@ public class FollowingProcessor {
 		
 		String fname = uid + "_following.txt";
 		BufferedWriter bw = new BufferedWriter(new FileWriter(fname, true));
+		try{
+			
 		String[] users = fm.getFriendsIdsByUid(uid);
 		int cursors = users.length/5000 + 1;
 		for(int i=0;i<cursors;i++){
@@ -45,6 +47,18 @@ public class FollowingProcessor {
 		bw.flush();
 		bw.close();
 		return fuids;
+		
+		}catch(WeiboException e){
+			System.out.println(e.getErrorCode());
+			System.out.println(e.getError());
+			System.out.println(e.getStatusCode());
+			if( (e.getError()=="User does not exists!"))
+				System.out.println("User " + uid + " has been deleted!");
+			    bw.write(uid);
+			    bw.flush();
+			    bw.close();
+			    return null;
+		}
 		
 	}
 

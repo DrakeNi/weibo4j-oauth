@@ -75,17 +75,17 @@ public class Test {
 	    
 	    String app_redir_url = "http://shiwei072.weibo.com/callback";
 	    
-	    ArrayList<App> apps = new ArrayList<App>(2);
-	    for(int i=4; i<6; i++){
+	    ArrayList<App> apps = new ArrayList<App>(30);
+	    for(int i=0; i<30; i++){
 	    	apps.add(apppool[i]);
 	    }
 	    
-	    ArrayList<AppUser> appusers= new ArrayList<AppUser>(3);
-	    for(int i=0; i<3; i++){
+	    ArrayList<AppUser> appusers= new ArrayList<AppUser>(7);
+	    for(int i=0; i<7; i++){
 	    	appusers.add(userpool[i]);
 	    }
         
-	    TokenScheduler token_scheduler = new TokenScheduler(1000,150,2,3,1000*60*60);
+	    TokenScheduler token_scheduler = new TokenScheduler(1000,150,30,7,1000*60*60);
 	    token_scheduler.setApps(apps);
 	    token_scheduler.setAppUsers(appusers);
 	    token_scheduler.printApp();
@@ -95,7 +95,8 @@ public class Test {
 	    try{
 	    ArrayList<String> uids = new ArrayList<String>();
 	    
-	    String fname ="uids_test.txt";
+	    //String fname ="uids_1_100.txt";
+	    String fname = "nouser.txt";
 	    //String fname = "test1.txt";
 	    //FileReader reader = new FileReader(fname);
 	    BufferedReader br = new BufferedReader(new FileReader(fname));
