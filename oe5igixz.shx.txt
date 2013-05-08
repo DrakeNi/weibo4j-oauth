@@ -1,0 +1,22 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch WeiboCrawler
+# Your branch is ahead of 'origin/WeiboCrawler' by 2 commits.
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   1ew4xou1.pld.txt
+#	new file:   2023129214_following.txt
+#	new file:   2023129214_timeline.txt
+#	deleted:    Timeline.txt
+#	new file:   nouser.txt
+#	modified:   weibo.log
+#	modified:   weibo.log.1
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	mivxfuji.exw.txt
+

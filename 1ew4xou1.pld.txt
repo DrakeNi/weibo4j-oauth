@@ -1,0 +1,41 @@
+﻿Merge branch 'WeiboCrawler'
+
+Conflicts:
+	bin/weibo4j/examples/account/GetAccountRateLimitStatus.class
+	examples/weibo4j/examples/WeiboCrawler/AccessTokenIssuer.java
+	examples/weibo4j/examples/WeiboCrawler/Test.java
+	examples/weibo4j/examples/WeiboCrawler/TokenScheduler.java
+	examples/weibo4j/examples/account/GetAccountRateLimitStatus.java
+	weibo.log
+	weibo.log.1
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# All conflicts fixed but you are still merging.
+#   (use "git commit" to conclude merge)
+#
+# Changes to be committed:
+#
+#	modified:   .project
+#	modified:   bin/.gitignore
+#	modified:   bin/log4j.properties
+#	new file:   examples/weibo4j/examples/WeiboCrawler/AccessTokenChecker.java
+#	deleted:    examples/weibo4j/examples/WeiboCrawler/AccessTokenIssuer.java
+#	new file:   examples/weibo4j/examples/WeiboCrawler/FollowingProcessor.java
+#	deleted:    examples/weibo4j/examples/WeiboCrawler/Test.java
+#	new file:   examples/weibo4j/examples/WeiboCrawler/TimelineProcessor.java
+#	modified:   examples/weibo4j/examples/WeiboCrawler/TokenScheduler.java
+#	new file:   examples/weibo4j/examples/WeiboCrawler/WeiboUser.java
+#	deleted:    examples/weibo4j/examples/account/GetAccountRateLimitStatus.java
+#	modified:   src/log4j.properties
+#	modified:   weibo.log
+#	modified:   weibo.log.1
+#
+
