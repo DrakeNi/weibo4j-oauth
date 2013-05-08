@@ -283,6 +283,24 @@ public class Status extends WeiboResponse implements java.io.Serializable {
 			throw new WeiboException(jsone);
 		}
 	}
+	
+	public String toStatusString(){
+		return "Status [idstr=" + idstr + ", createdAt="
+				+ createdAt + ", id=" + id + ", text=" + text + ", source="
+				+ source + ", favorited=" + favorited + ", truncated="
+				+ truncated + ", inReplyToStatusId=" + inReplyToStatusId
+				+ ", inReplyToUserId=" + inReplyToUserId
+				+ ", inReplyToScreenName=" + inReplyToScreenName
+				+ ", thumbnailPic=" + thumbnailPic + ", bmiddlePic="
+				+ bmiddlePic + ", originalPic=" + originalPic
+				+ ", retweetedStatus=" + retweetedStatus + ", geo=" + geo
+				+ ", latitude=" + latitude + ", longitude=" + longitude
+				+ ", repostsCount=" + repostsCount + ", commentsCount="
+				+ commentsCount + ", mid=" + mid + ", annotations="
+				+ annotations + ", mlevel=" + mlevel
+				+ ", visible=" + visible + "]";
+		
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -306,6 +324,7 @@ public class Status extends WeiboResponse implements java.io.Serializable {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Status [user=" + user + ", idstr=" + idstr + ", createdAt="

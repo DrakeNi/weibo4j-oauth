@@ -1,7 +1,11 @@
 package weibo4j.examples.WeiboCrawler;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -88,7 +92,33 @@ public class Test {
 	    token_scheduler.setAccessTokens();
 	    token_scheduler.printAcesstoken();
 	    
-	    int MaxDepth = 1;
+	    try{
+	    ArrayList<String> uids = new ArrayList<String>();
+	    
+	    String fname ="uids_test.txt";
+	    //String fname = "test1.txt";
+	    //FileReader reader = new FileReader(fname);
+	    BufferedReader br = new BufferedReader(new FileReader(fname));
+	    String str = null;
+	    int count = 0;
+	    while((str = br.readLine())!=null){
+	    	uids.add(str.trim());
+	    	System.out.println("reading uids: " + str.trim());
+	    	count++;
+	    }
+	    br.close();
+	    System.out.println("Successfully read line " + count + " uids");
+	    
+	    Iterator<String> iter = uids.iterator();
+	    while(iter.hasNext()){
+	    	String u = iter.next();
+	    	TimelineProcessor.getTimeline(u, token_scheduler);
+	    	FollowingProcessor.getFollowing(u, token_scheduler);	
+	    	System.out.println("Done!");
+	    }
+	    
+	    
+	    /*int MaxDepth = 1;
 		String seed="3069695371";
 		WeiboUser iuser = new WeiboUser(seed, 0);
 		try{
@@ -147,17 +177,20 @@ public class Test {
 	    		level++;
 	    		
 	    	}
-	    	System.out.println(" level " + level + " crawling is done!");
+	    	System.out.println(" level " + level + " crawling is done!");*/
 	    	
-	    }
 		}
 		catch (WeiboException e)
 		{
 			e.printStackTrace();
 		}
+	    catch(FileNotFoundException e){
+	    	e.printStackTrace();
+	    }
 		catch(IOException e){
 			e.printStackTrace();
 		}
+	    
 		
 	    
 	}

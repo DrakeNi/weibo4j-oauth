@@ -3,6 +3,7 @@ package weibo4j.examples.WeiboCrawler;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 import weibo4j.Account;
@@ -33,11 +34,13 @@ public class TimelineProcessor {
 	    Timeline tm = new Timeline();
 		tm.client.setToken(access_token.getAccessToken());
 		StatusWapper status = tm.getUserTimelineByUid(uid);
-		if(status.getTotalNumber()==0){
+		List<Status> list =status.getStatuses();
+		Iterator<Status> iter = list.iterator();
+		if((!iter.hasNext())||status.getTotalNumber()==0){
 			
 			// handle the user who has no timeline, record the user's information
 			System.out.println(status.getTotalNumber());
-			System.out.println("There is no timeline!");
+			System.out.println("There is no timeline or The number of timeline is zero !");
 			AccessToken tempat = ts.getCurrentAccessToken();
 			while(AccessTokenChecker.isEmpty(tempat)||(!AccessTokenChecker.isRemainingHits(tempat))){
 				tempat = ts.getNextAccessToken();
@@ -55,8 +58,14 @@ public class TimelineProcessor {
 		//System.out.println(status.getTotalNumber());
 		
 		
-	    List<Status> list =status.getStatuses();
-		Status cstatus = list.get(0);
+	    //List<Status> list =status.getStatuses();
+	    //Iterator<Status> iter = list.iterator();
+	    /*if(!iter.hasNext()){
+	    	System.out.println("fail to read timeline!");
+	    	return;
+	    }*/
+		//Status cstatus = list.get(0);
+	    Status cstatus = iter.next();
 		User cuser = cstatus.getUser();
 		bw.write(cuser.toString());
 		bw.newLine();
@@ -76,7 +85,7 @@ public class TimelineProcessor {
 			for(Status s : status1.getStatuses()){
 				//fobj.WriteByLine(s.toString());
 				
-				bw.write(s.toString());
+				bw.write(s.toStatusString());
 				bw.newLine();
 				System.out.println("-----"+ s.getText() + "------");
 			}
